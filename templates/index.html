@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Flight Price Predictor</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    background: linear-gradient(120deg,#4facfe,#00f2fe);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    width:400px;
+    box-shadow:0px 10px 25px rgba(0,0,0,0.2);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+input,select{
+    width:100%;
+    padding:10px;
+    margin-top:8px;
+    margin-bottom:15px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#4facfe;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#2e8df5;
+}
+
+.result{
+    text-align:center;
+    margin-top:20px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>✈ Flight Price Predictor</h2>
+
+<form action="/predict" method="post">
+
+<label>Airline</label>
+<select name="airline">
+<option value="0">IndiGo</option>
+<option value="1">Air India</option>
+<option value="2">SpiceJet</option>
+<option value="3">Vistara</option>
+</select>
+
+<label>Source</label>
+<select name="source">
+<option value="0">Delhi</option>
+<option value="1">Mumbai</option>
+<option value="2">Kolkata</option>
+<option value="3">Chennai</option>
+</select>
+
+<label>Destination</label>
+<select name="destination">
+<option value="0">Delhi</option>
+<option value="1">Mumbai</option>
+<option value="2">Kolkata</option>
+<option value="3">Chennai</option>
+<option value="4">Bangalore</option>
+</select>
+
+<label>Stops</label>
+<select name="stops">
+<option value="0">Non-stop</option>
+<option value="1">1 Stop</option>
+<option value="2">2 Stops</option>
+</select>
+
+<label>Duration (hours)</label>
+<input type="number" step="0.1" name="duration" required>
+
+<button type="submit">Predict Price</button>
+
+</form>
+
+<div class="result">
+{{ prediction_text }}
+</div>
+
+</div>
+
+</body>
+</html>
